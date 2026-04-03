@@ -1,0 +1,492 @@
+/* ─── Shell wrapper ──────────────────────────── */
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: #ffffff;
+}
+
+/* ─── Top bar ────────────────────────────────── */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 56px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.topbar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #111;
+  flex-shrink: 0;
+}
+
+.topbar-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  letter-spacing: 0.3px;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 18px;
+  background-color: #e8e8e8;
+}
+
+.topbar-meta {
+  font-size: 12px;
+  color: #bbb;
+  letter-spacing: 0.3px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-export:hover { opacity: 0.85; }
+
+.btn-ghost {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: transparent;
+  color: #888;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  color: #444;
+  border-color: #d0d0d0;
+}
+
+/* ─── Main area ──────────────────────────────── */
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ─── Left panel — form ──────────────────────── */
+
+.panel-form {
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.panel-form-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 28px 40px;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 transparent;
+}
+
+.panel-form-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel-form-scroll::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}
+
+/* ─── Section block inside form ─────────────── */
+
+.section-block {
+  margin-bottom: 36px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #c0c0c0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+/* ─── Right panel — preview ──────────────────── */
+
+.panel-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f5;
+  overflow: hidden;
+}
+
+.preview-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid #eeeeec;
+}
+
+.preview-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #bbb;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.preview-zoom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zoom-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-family: inherit;
+}
+
+.zoom-btn:hover { background-color: #efefef; }
+
+.zoom-value {
+  font-size: 11px;
+  color: #aaa;
+  min-width: 36px;
+  text-align: center;
+}
+
+.preview-scroll {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 24px 48px;
+}
+
+.preview-page {
+  background-color: #ffffff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  width: 210mm;
+  min-height: 297mm;
+  transform-origin: top center;
+  flex-shrink: 0;
+}
+
+/* ─── ATS warning banner ─────────────────────── */
+
+.ats-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.ats-banner-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ats-banner-text {
+  font-size: 12px;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+.ats-banner-text strong {
+  font-weight: 600;
+}
+
+/* ─── Form fields (shared) ───────────────────── */
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: #c0c0c0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #111;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input:focus { border-color: #999; }
+.input::placeholder { color: #d0d0d0; }
+
+.textarea {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #111;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.6;
+}
+
+.textarea:focus { border-color: #999; }
+.textarea::placeholder { color: #d0d0d0; }
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap select {
+  width: 100%;
+  padding: 10px 34px 10px 13px;
+  border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #111;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.select-wrap select:focus { border-color: #999; }
+.select-wrap select.empty { color: #d0d0d0; }
+
+.select-chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 18px;
+  color: #ccc;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ─── Add item button ────────────────────────── */
+
+.btn-add-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: transparent;
+  color: #aaa;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+  margin-top: 4px;
+}
+
+.btn-add-item:hover {
+  color: #555;
+  border-color: #bbb;
+}
+
+/* ─── Item card (experience, education, etc) ─── */
+
+.item-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+}
+
+.item-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.item-card-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+}
+
+.btn-remove {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.15s, background-color 0.15s;
+  padding: 0;
+  font-family: inherit;
+}
+
+.btn-remove:hover {
+  color: #e05050;
+  background-color: #fff0f0;
+}
+
+/* ─── Skill tags ─────────────────────────────── */
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background-color: #f0f0f0;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #555;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.skill-tag button:hover { color: #e05050; }
+
+.skill-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.skill-input-row .input { flex: 1; }
+
+.btn-add-skill {
+  padding: 10px 14px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.btn-add-skill:hover { opacity: 0.8; }
